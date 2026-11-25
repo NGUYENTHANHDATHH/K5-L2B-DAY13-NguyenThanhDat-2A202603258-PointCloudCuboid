@@ -35,6 +35,7 @@ Ví dụ: `K5-L2-DAY13-NguyenVanAn-2A202600123-PointCloudCuboid`.
 - Nộp muộn (−10% điểm mỗi ngày, quá 3 ngày không nhận; commit sau deadline chỉ được chấm khi bạn báo coach là chấp nhận trừ điểm muộn): [RULES.md](RULES.md) mục "Nộp muộn".
 
 ## Trước khi nộp
+
 1. Bấm **Save** trong CVAT, rồi `python scripts/lab.py sync` để bảng A và phiếu tự kiểm khớp task.
 2. Đổi tiêu đề trong `README.md` thành `# Day 13 Lab — <MSSV> - <Họ và tên>`. Thay cả dấu `<` và `>`. MSSV phải trùng `student` trong `configs/lab.ini`. Ví dụ `# Day 13 Lab — 2A202600123 - Nguyễn Văn An`.
 3. Báo cáo: đổi tên `report/individual/MSSV_HoTen.md` thành `<MSSV>_<HoTen>.md` (họ tên không dấu, viết liền, ví dụ `2A202600123_NguyenVanAn.md`) nếu chưa đổi, rồi điền đủ (xoá mọi dấu TODO). Đổi tên, đừng chép thành file thứ hai. Windows: bật File Explorer → **View → Show → File name extensions** trước khi đổi tên, để tên không thành `….md.md`.
@@ -50,11 +51,13 @@ Ví dụ: `K5-L2-DAY13-NguyenVanAn-2A202600123-PointCloudCuboid`.
 8. Nộp lên LMS: **link repo** và **file zip ảnh** ở bước 4.
 
 Sửa cuboid sau khi nộp (trước deadline):
+
 - Đóng bảng A, phiếu tự kiểm nếu đang mở trong Excel (Excel giữ file thì lệnh không ghi được), Save trong CVAT, rồi `python scripts/lab.py sync`.
 - Đối chiếu lại số trong báo cáo với bảng A và phiếu tự kiểm mới. Vẽ thêm, sửa hay xoá cuboid đều có thể đổi §1 (tổng số cuboid, frame ít nhất, số bị cờ) và §5 (cuboid gần nhất, xa nhất). Cuboid đã dẫn ở §3, §5 thì đổi khi chính nó bị sửa, hoặc khi trong frame của nó có cuboid bị xoá, vẽ lại (`idx` của các cuboid sau đó đổi theo).
 - `python scripts/check_submission.py`, rồi commit và push lại. Thêm, đổi hay chụp lại ảnh thì chạy lại `pack` và nộp lại file zip.
 
 ## Cấu trúc
+
 ```text
 README.md                        # tiêu đề có MSSV và họ tên                                  -> repo
 configs/lab.ini                  # đã điền student, cvat_user (KHÔNG có mật khẩu)              -> repo
@@ -74,7 +77,9 @@ report/individual/
     ├── t4-3-phan-xa-thap.png
     └── t4-4-diem-la.png
 ```
+
 `t1`, `t2`, `t4` là số nhiệm vụ T1–T5 của đề (Bước 2 = T1, Bước 3 = T2–T3, Bước 4 = T4). Ảnh `.png` hoặc `.jpg` đều được; `<frame>` là tên frame, ví dụ `t1-s01f21-top.png`. `.gitignore` chặn sẵn ảnh trong `report/individual/images/` và mọi file trong `submission/` trừ bảng A, phiếu tự kiểm, nên `git add -A` không đưa ảnh lên repo.
 
 ## CVAT
+
 Lớp không có máy chủ CVAT chung: task `D13-<MSSV>` nằm trên CVAT của máy bạn và coach không vào được. Coach chấm phần vẽ từ **bảng A** trong repo; ảnh chụp trong CVAT (Bước 2–4) là bằng chứng bạn vẽ trên CVAT. Giữ nguyên CVAT (không `down -v`, không `--replace`) cho tới khi có điểm, phòng khi coach cần xem lại trên máy bạn.
